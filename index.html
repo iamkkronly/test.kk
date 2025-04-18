@@ -84,17 +84,9 @@
     .adBox {
       background: #111;
       border-radius: 8px;
-      padding: 5px;
+      padding: 10px;
       box-shadow: 0 0 10px #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .adBox iframe {
-      border: none;
-      width: 320px;
-      height: 50px;
+      min-height: 60px;
     }
   </style>
 </head>
@@ -152,16 +144,27 @@
       for (let i = 0; i < 10; i++) {
         const adBox = document.createElement('div');
         adBox.className = 'adBox';
-
-        const iframe = document.createElement('iframe');
-        iframe.src = '//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js';
-        iframe.width = "320";
-        iframe.height = "50";
-        iframe.scrolling = "no";
-        iframe.frameBorder = "0";
-
-        adBox.appendChild(iframe);
+        adBox.id = 'adBox' + i;
         adsArea.appendChild(adBox);
+
+        // Ad script
+        const adScript1 = document.createElement('script');
+        adScript1.type = 'text/javascript';
+        adScript1.innerHTML = `
+          atOptions = {
+            'key' : 'f20c937f378aa28ee7a1e5327603a628',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        `;
+        const adScript2 = document.createElement('script');
+        adScript2.type = 'text/javascript';
+        adScript2.src = '//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js';
+
+        adBox.appendChild(adScript1);
+        adBox.appendChild(adScript2);
       }
     }
 
