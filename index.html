@@ -91,5 +91,41 @@ function clearDisplay() {
 <script async="async" data-cfasync="false" src="//pl26409033.profitableratecpm.com/3e962279802f60ee451f1ee57bdbcd54/invoke.js"></script>
 <div id="container-3e962279802f60ee451f1ee57bdbcd54"></div>
 
+
+
+<!-- Ad Box 1 -->
+<div class="ad-box" id="adbox1"></div>
+
+<!-- Ad Box 2 -->
+<div class="ad-box" id="adbox2"></div>
+
+<!-- Ad Box 3 -->
+<div class="ad-box" id="adbox3"></div>
+
+<!-- Ad Script Load Once -->
+<script async="async" data-cfasync="false" src="//pl26409033.profitableratecpm.com/3e962279802f60ee451f1ee57bdbcd54/invoke.js"></script>
+
+<script>
+  // Dynamically load ads
+  function loadAd(containerId) {
+    var script = document.createElement('script');
+    script.innerHTML = `
+      (function() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = '//pl26409033.profitableratecpm.com/3e962279802f60ee451f1ee57bdbcd54/invoke.js';
+        var container = document.getElementById('${containerId}');
+        if (container) container.appendChild(s);
+      })();
+    `;
+    document.body.appendChild(script);
+  }
+
+  // Load ads into each box
+  loadAd('adbox1');
+  loadAd('adbox2');
+  loadAd('adbox3');
+</script>
+                                                                                                                    
 </body>
 </html>
