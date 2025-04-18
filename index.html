@@ -1,6 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Any File to Any File Converter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #eee;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 30px 0;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    input, select, button {
+      margin: 10px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: none;
+      font-size: 18px;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    input, select {
+      background: #222;
+      color: #eee;
+      border: 2px solid #444;
+    }
+
+    button {
+      background: #00ff88;
+      color: #111;
+      font-weight: bold;
+      box-shadow: 0 0 15px #00ff88, 0 0 40px #00ff88;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00cc77;
+      box-shadow: 0 0 20px #00cc77, 0 0 50px #00cc77;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffeb3b;
+      text-shadow: 0 0 5px #ffeb3b;
+    }
+
+    .adContainer {
+      margin: 20px 0;
+      padding: 10px;
+      background: #222;
+      border: 2px solid #444;
+      border-radius: 10px;
+      width: 340px;
+      box-shadow: 0 0 20px #555;
+    }
+  </style>
+</head>
 <body>
 
   <h1>Any File to Any File Converter</h1>
+
   <input type="file" id="fileInput"><br>
   <select id="outputFormat">
     <option value="">Select output format</option>
@@ -12,12 +86,13 @@
     <option value="mp4">MP4</option>
     <option value="txt">TXT</option>
   </select><br>
+
   <button onclick="convertFile()">Convert</button>
 
   <p id="status"></p>
 
-  <!-- your ad code starts here bro -->
-  <div id="adContainer" style="margin-top:20px;">
+  <!-- Ads start here bro -->
+  <div class="adContainer">
     <script type="text/javascript">
       atOptions = {
         'key' : 'f20c937f378aa28ee7a1e5327603a628',
@@ -29,7 +104,46 @@
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
   </div>
-  <!-- your ad code ends here -->
+
+  <div class="adContainer">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'f20c937f378aa28ee7a1e5327603a628',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
+  </div>
+
+  <div class="adContainer">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'f20c937f378aa28ee7a1e5327603a628',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
+  </div>
+
+  <div class="adContainer">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'f20c937f378aa28ee7a1e5327603a628',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
+  </div>
+  <!-- Ads end here -->
 
   <script>
     function convertFile() {
@@ -50,9 +164,10 @@
       status.innerText = `Preparing to convert ${file.name} to ${outputFormat}...`;
 
       setTimeout(() => {
-        status.innerText = `Done bro! (But fr need backend server to actually do it)`;
+        status.innerText = `Done bro! (but fr you need a real backend server to actually convert it)`;
       }, 1500);
     }
   </script>
 
 </body>
+</html>
