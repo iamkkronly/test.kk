@@ -1,29 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Any File to Any File Converter</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #111;
-      color: #eee;
-      text-align: center;
-      margin-top: 50px;
-    }
-    input, select, button {
-      margin: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
-    }
-    button {
-      background-color: #0f0;
-      cursor: pointer;
-    }
-  </style>
-</head>
 <body>
 
   <h1>Any File to Any File Converter</h1>
@@ -37,11 +11,25 @@
     <option value="mp3">MP3</option>
     <option value="mp4">MP4</option>
     <option value="txt">TXT</option>
-    <!-- Add more as needed -->
   </select><br>
   <button onclick="convertFile()">Convert</button>
 
   <p id="status"></p>
+
+  <!-- your ad code starts here bro -->
+  <div id="adContainer" style="margin-top:20px;">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'f20c937f378aa28ee7a1e5327603a628',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
+  </div>
+  <!-- your ad code ends here -->
 
   <script>
     function convertFile() {
@@ -61,7 +49,6 @@
       const file = fileInput.files[0];
       status.innerText = `Preparing to convert ${file.name} to ${outputFormat}...`;
 
-      // Fake conversion (since real conversion needs backend power)
       setTimeout(() => {
         status.innerText = `Done bro! (But fr need backend server to actually do it)`;
       }, 1500);
@@ -69,4 +56,3 @@
   </script>
 
 </body>
-</html>
