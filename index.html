@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Any File to Any File Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -16,7 +16,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-sizing: border-box;
     }
 
     h1 {
@@ -74,20 +73,25 @@
       width: 100%;
       max-width: 400px;
       box-shadow: 0 0 15px #555;
-      overflow-y: auto;
-      height: 400px;
+      overflow-y: scroll;
+      height: 450px;
       padding: 15px;
       box-sizing: border-box;
+    }
+
+    .adBox {
+      background: #333;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #444;
     }
 
     #adContainer h2 {
       color: #0f0;
       font-size: 1.5rem;
       margin-bottom: 15px;
-    }
-
-    #adsArea > div {
-      margin-bottom: 15px;
+      text-align: center;
     }
   </style>
 </head>
@@ -139,9 +143,12 @@
       }, 1500);
     }
 
-    // Load ads dynamically, ONLY 10 times bro
+    // Load 10 ads in separate boxes
     for (let i = 0; i < 10; i++) {
       const adsArea = document.getElementById('adsArea');
+
+      const adBox = document.createElement('div');
+      adBox.className = 'adBox';
 
       const adScript1 = document.createElement('script');
       adScript1.type = 'text/javascript';
@@ -159,11 +166,10 @@
       adScript2.type = 'text/javascript';
       adScript2.src = '//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js';
 
-      const wrapper = document.createElement('div');
-      wrapper.appendChild(adScript1);
-      wrapper.appendChild(adScript2);
+      adBox.appendChild(adScript1);
+      adBox.appendChild(adScript2);
 
-      adsArea.appendChild(wrapper);
+      adsArea.appendChild(adBox);
     }
   </script>
 
