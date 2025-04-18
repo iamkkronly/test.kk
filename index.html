@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Any File to Any File Converter</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #eee;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, select, button {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: #0f0;
+      cursor: pointer;
+    }
+    .ad-container {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Any File to Any File Converter</h1>
+
+  <!-- Ad 1 (HighPerformanceFormat) -->
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'c850fa7659353a98d687723f0c161df7',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/c850fa7659353a98d687723f0c161df7/invoke.js"></script>
+  </div>
+
+  <!-- New Ad (Profitableratecpm) -->
+  <div class="ad-container">
+    <script async="async" data-cfasync="false" src="//pl26409033.profitableratecpm.com/3e962279802f60ee451f1ee57bdbcd54/invoke.js"></script>
+    <div id="container-3e962279802f60ee451f1ee57bdbcd54"></div>
+  </div>
+
+  <input type="file" id="fileInput"><br>
+  <select id="outputFormat">
+    <option value="">Select output format</option>
+    <option value="pdf">PDF</option>
+    <option value="docx">DOCX</option>
+    <option value="jpg">JPG</option>
+    <option value="png">PNG</option>
+    <option value="mp3">MP3</option>
+    <option value="mp4">MP4</option>
+    <option value="txt">TXT</option>
+  </select><br>
+  <button onclick="convertFile()">Convert</button>
+
+  <p id="status"></p>
+
+  <!-- Ad 2 (HighPerformanceFormat) -->
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'c850fa7659353a98d687723f0c161df7',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/c850fa7659353a98d687723f0c161df7/invoke.js"></script>
+  </div>
+
+  <!-- Ad 3 (HighPerformanceFormat) -->
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'c850fa7659353a98d687723f0c161df7',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/c850fa7659353a98d687723f0c161df7/invoke.js"></script>
+  </div>
+
+  <script>
+    function convertFile() {
+      const fileInput = document.getElementById('fileInput');
+      const outputFormat = document.getElementById('outputFormat').value;
+      const status = document.getElementById('status');
+
+      if (!fileInput.files.length) {
+        status.innerText = "Yo bro, upload a file first!";
+        return;
+      }
+      if (!outputFormat) {
+        status.innerText = "Brooo pick an output format!";
+        return;
+      }
+
+      const file = fileInput.files[0];
+      status.innerText = `Preparing to convert ${file.name} to ${outputFormat}...`;
+
+      setTimeout(() => {
+        status.innerText = `Done bro! (But fr need backend server to actually do it)`;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
