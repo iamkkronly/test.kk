@@ -2,109 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Ad Website</title>
-  <meta name="description" content="Best Ad Website - Powered by Real OGs, not Samsung losers.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <meta name="monetag" content="201c394c12cacea5834c624a2e1f5557">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background: #f0f2f5;
-      color: #333;
-      padding: 20px;
-    }
-    header {
-      background: #6200ea;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-    .ad-box {
-      background: white;
-      margin: 20px 0;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    footer {
-      margin-top: 30px;
-      text-align: center;
-      color: #777;
-      font-size: 14px;
-    }
+    body { font-family: Arial, sans-serif; background: #f2f2f2; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; padding: 20px; margin: 0; }
+    h1 { margin-top: 20px; margin-bottom: 10px; }
+    .calculator { background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 320px; }
+    input[type="text"] { width: 100%; font-size: 24px; padding: 10px; margin-bottom: 10px; text-align: right; border: 1px solid #ccc; border-radius: 8px; }
+    .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    button { padding: 15px; font-size: 18px; border: none; border-radius: 10px; background: #4CAF50; color: white; cursor: pointer; transition: background 0.3s; }
+    button:hover { background: #45a049; }
+    .ad-container { margin-top: 20px; width: 320px; height: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Welcome to My Ad Site</h1>
-  <p>Where Ads Actually Load, Unlike Samsung Products.</p>
-</header>
+<h1>Simple Calculator</h1>
 
-<div class="container">
-  
-  <!-- Ad 1 -->
-  <div class="ad-box" id="adbox1">
-    <p>Loading Ad 1...</p>
+<div class="calculator">
+  <input type="text" id="display" disabled>
+  <div class="buttons">
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('/')">/</button>
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick="append('*')">*</button>
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="append('-')">-</button>
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="append('+')">+</button>
+    <button onclick="clearDisplay()" style="grid-column: span 4; background: #f44336;">Clear</button>
   </div>
-
-  <!-- Ad 2 -->
-  <div class="ad-box" id="adbox2">
-    <p>Loading Ad 2...</p>
-  </div>
-
-  <!-- Ad 3 -->
-  <div class="ad-box" id="adbox3">
-    <p>Loading Ad 3...</p>
-  </div>
-
-  <!-- Ad 4 -->
-  <div class="ad-box" id="adbox4">
-    <p>Loading Ad 4...</p>
-  </div>
-
 </div>
 
-<footer>
-  <p>&copy; 2025 My Ad Site | Powered by Real Hustlers, not Samsung Jokers.</p>
-</footer>
+<div class="ad-container">
+  <!-- Ad Scripts -->
+  <script type="text/javascript">
+    atOptions = {
+      'key': 'f20c937f378aa28ee7a1e5327603a628',
+      'format': 'iframe',
+      'height': 50,
+      'width': 320,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
 
-<!-- Load Ad Script once -->
-<script async="async" data-cfasync="false" src="//pl26409033.profitableratecpm.com/3e962279802f60ee451f1ee57bdbcd54/invoke.js"></script>
+  <ins style="width: 300px; height: 250px" data-width="300" data-height="250" class="m53c690cb26" data-domain="//015467.shop" data-affquery="/52ad720daeb037561aeb/53c690cb26/?placementName=default">
+    <script src="//015467.shop/js/responsive.js" async></script>
+  </ins>
+</div>
 
 <script>
-  function loadAd(containerId) {
-    var script = document.createElement('script');
-    script.innerHTML = `
-      (function() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = '//pl26409033.profitableratecpm.com/3e962279802f60ee451f1ee57bdbcd54/invoke.js';
-        var container = document.getElementById('${containerId}');
-        if (container) container.appendChild(s);
-      })();
-    `;
-    document.body.appendChild(script);
-  }
+function append(value) {
+  document.getElementById('display').value += value;
+}
 
-  // Load ads
-  loadAd('adbox1');
-  loadAd('adbox2');
-  loadAd('adbox3');
-  loadAd('adbox4');
+function calculate() {
+  try {
+    document.getElementById('display').value = eval(document.getElementById('display').value);
+  } catch (e) {
+    alert('Invalid Expression');
+  }
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
 </script>
 
 </body>
