@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Any File to Any File Converter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #1f1c2c, #928dab);
       color: #eee;
+      text-align: center;
       margin: 0;
       padding: 20px;
       min-height: 100vh;
@@ -19,23 +19,21 @@
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
-      text-align: center;
       text-shadow: 0 0 10px #fff;
     }
 
     input, select, button {
-      width: 100%;
-      max-width: 400px;
       margin: 10px 0;
-      padding: 12px 18px;
+      padding: 12px 20px;
       border-radius: 8px;
       border: none;
       font-size: 16px;
+      width: 90%;
+      max-width: 400px;
       outline: none;
-      transition: 0.3s;
-      box-sizing: border-box;
+      transition: 0.3s ease;
     }
 
     input, select {
@@ -48,50 +46,55 @@
       background: #00ff88;
       color: #111;
       font-weight: bold;
-      box-shadow: 0 0 10px #00ff88;
+      box-shadow: 0 0 15px #00ff88, 0 0 40px #00ff88;
       cursor: pointer;
     }
 
     button:hover {
       background: #00cc77;
-      box-shadow: 0 0 15px #00cc77;
+      box-shadow: 0 0 20px #00cc77, 0 0 50px #00cc77;
     }
 
     #status {
       margin-top: 20px;
       font-size: 16px;
       color: #ffeb3b;
-      text-align: center;
       text-shadow: 0 0 5px #ffeb3b;
-      padding: 0 10px;
     }
 
     #adContainer {
       margin-top: 30px;
+      padding: 20px;
       background: #222;
       border-radius: 10px;
-      width: 100%;
+      width: 95%;
       max-width: 400px;
-      box-shadow: 0 0 15px #555;
-      overflow-y: scroll;
-      height: 450px;
-      padding: 15px;
-      box-sizing: border-box;
+      box-shadow: 0 0 20px #555;
+      overflow-y: auto;
+      max-height: 600px;
+    }
+
+    #adsArea {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
     }
 
     .adBox {
-      background: #333;
-      margin-bottom: 15px;
-      padding: 10px;
+      background: #111;
       border-radius: 8px;
-      box-shadow: 0 0 10px #444;
+      padding: 5px;
+      box-shadow: 0 0 10px #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    #adContainer h2 {
-      color: #0f0;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      text-align: center;
+    .adBox iframe {
+      border: none;
+      width: 320px;
+      height: 50px;
     }
   </style>
 </head>
@@ -99,7 +102,7 @@
 
   <h1>Any File to Any File Converter</h1>
 
-  <input type="file" id="fileInput">
+  <input type="file" id="fileInput"><br>
   <select id="outputFormat">
     <option value="">Select output format</option>
     <option value="pdf">PDF</option>
@@ -109,14 +112,14 @@
     <option value="mp3">MP3</option>
     <option value="mp4">MP4</option>
     <option value="txt">TXT</option>
-  </select>
-  
+  </select><br>
+
   <button onclick="convertFile()">Convert</button>
 
   <p id="status"></p>
 
   <div id="adContainer">
-    <h2>Sponsored Ads</h2>
+    <h2 style="color:#0f0; margin-bottom:10px;">Sponsored Ads</h2>
     <div id="adsArea"></div>
   </div>
 
@@ -143,34 +146,26 @@
       }, 1500);
     }
 
-    // Load 10 ads in separate boxes
-    for (let i = 0; i < 10; i++) {
+    function loadAds() {
       const adsArea = document.getElementById('adsArea');
 
-      const adBox = document.createElement('div');
-      adBox.className = 'adBox';
+      for (let i = 0; i < 10; i++) {
+        const adBox = document.createElement('div');
+        adBox.className = 'adBox';
 
-      const adScript1 = document.createElement('script');
-      adScript1.type = 'text/javascript';
-      adScript1.innerHTML = `
-        atOptions = {
-          'key' : 'f20c937f378aa28ee7a1e5327603a628',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      `;
+        const iframe = document.createElement('iframe');
+        iframe.src = '//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js';
+        iframe.width = "320";
+        iframe.height = "50";
+        iframe.scrolling = "no";
+        iframe.frameBorder = "0";
 
-      const adScript2 = document.createElement('script');
-      adScript2.type = 'text/javascript';
-      adScript2.src = '//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js';
-
-      adBox.appendChild(adScript1);
-      adBox.appendChild(adScript2);
-
-      adsArea.appendChild(adBox);
+        adBox.appendChild(iframe);
+        adsArea.appendChild(adBox);
+      }
     }
+
+    window.onload = loadAds;
   </script>
 
 </body>
