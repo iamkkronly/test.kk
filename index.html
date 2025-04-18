@@ -2,173 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Any File to Any File Converter</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: #eee;
-      text-align: center;
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px #fff;
-    }
-
-    input, select, button {
-      margin: 10px 0;
-      padding: 12px 20px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
-      width: 90%;
-      max-width: 400px;
-      outline: none;
-      transition: 0.3s ease;
-    }
-
-    input, select {
-      background: #222;
-      color: #eee;
-      border: 2px solid #444;
-    }
-
-    button {
-      background: #00ff88;
-      color: #111;
-      font-weight: bold;
-      box-shadow: 0 0 15px #00ff88, 0 0 40px #00ff88;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #00cc77;
-      box-shadow: 0 0 20px #00cc77, 0 0 50px #00cc77;
-    }
-
-    #status {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #ffeb3b;
-      text-shadow: 0 0 5px #ffeb3b;
-    }
-
-    #adContainer {
-      margin-top: 30px;
+      justify-content: flex-start;
+      min-height: 100vh;
       padding: 20px;
-      background: #222;
-      border-radius: 10px;
-      width: 95%;
-      max-width: 400px;
-      box-shadow: 0 0 20px #555;
-      overflow-y: auto;
-      max-height: 600px;
+      margin: 0;
     }
-
-    #adsArea {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+    h1 {
       margin-top: 20px;
+      margin-bottom: 10px;
     }
-
-    .adBox {
-      background: #111;
-      border-radius: 8px;
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 320px;
+    }
+    input[type="text"] {
+      width: 100%;
+      font-size: 24px;
       padding: 10px;
-      box-shadow: 0 0 10px #333;
-      min-height: 60px;
+      margin-bottom: 10px;
+      text-align: right;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .ad-container {
+      margin-top: 20px;
+      width: 320px;
+      height: 50px;
+      overflow: hidden;
     }
   </style>
 </head>
 <body>
 
-  <h1>Any File to Any File Converter</h1>
+  <h1>Simple Calculator</h1>
 
-  <input type="file" id="fileInput"><br>
-  <select id="outputFormat">
-    <option value="">Select output format</option>
-    <option value="pdf">PDF</option>
-    <option value="docx">DOCX</option>
-    <option value="jpg">JPG</option>
-    <option value="png">PNG</option>
-    <option value="mp3">MP3</option>
-    <option value="mp4">MP4</option>
-    <option value="txt">TXT</option>
-  </select><br>
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="buttons">
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('/')">/</button>
 
-  <button onclick="convertFile()">Convert</button>
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('*')">*</button>
 
-  <p id="status"></p>
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('-')">-</button>
 
-  <div id="adContainer">
-    <h2 style="color:#0f0; margin-bottom:10px;">Sponsored Ads</h2>
-    <div id="adsArea"></div>
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="append('+')">+</button>
+
+      <button onclick="clearDisplay()" style="grid-column: span 4; background: #f44336;">Clear</button>
+    </div>
+  </div>
+
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'f20c937f378aa28ee7a1e5327603a628',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
   </div>
 
   <script>
-    function convertFile() {
-      const fileInput = document.getElementById('fileInput');
-      const outputFormat = document.getElementById('outputFormat').value;
-      const status = document.getElementById('status');
-
-      if (!fileInput.files.length) {
-        status.innerText = "Yo bro, upload a file first!";
-        return;
-      }
-      if (!outputFormat) {
-        status.innerText = "Brooo pick an output format!";
-        return;
-      }
-
-      const file = fileInput.files[0];
-      status.innerText = `Preparing to convert ${file.name} to ${outputFormat}...`;
-
-      setTimeout(() => {
-        status.innerText = `Done bro! (but fr you need a real backend server to actually convert it)`;
-      }, 1500);
+    function append(value) {
+      document.getElementById('display').value += value;
     }
 
-    function loadAds() {
-      const adsArea = document.getElementById('adsArea');
-
-      for (let i = 0; i < 10; i++) {
-        const adBox = document.createElement('div');
-        adBox.className = 'adBox';
-        adBox.id = 'adBox' + i;
-        adsArea.appendChild(adBox);
-
-        // Ad script
-        const adScript1 = document.createElement('script');
-        adScript1.type = 'text/javascript';
-        adScript1.innerHTML = `
-          atOptions = {
-            'key' : 'f20c937f378aa28ee7a1e5327603a628',
-            'format' : 'iframe',
-            'height' : 50,
-            'width' : 320,
-            'params' : {}
-          };
-        `;
-        const adScript2 = document.createElement('script');
-        adScript2.type = 'text/javascript';
-        adScript2.src = '//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js';
-
-        adBox.appendChild(adScript1);
-        adBox.appendChild(adScript2);
+    function calculate() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch (e) {
+        alert('Invalid Expression');
       }
     }
 
-    window.onload = loadAds;
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
   </script>
 
 </body>
