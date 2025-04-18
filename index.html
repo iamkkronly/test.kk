@@ -4,139 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Calculator</title>
-
-  <!-- Monetag Meta Code -->
   <meta name="monetag" content="201c394c12cacea5834c624a2e1f5557">
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 20px;
-      margin: 0;
-    }
-    h1 {
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-    .calculator {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 320px;
-    }
-    input[type="text"] {
-      width: 100%;
-      font-size: 24px;
-      padding: 10px;
-      margin-bottom: 10px;
-      text-align: right;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    button {
-      padding: 15px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      background: #4CAF50;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    .ad-container {
-      margin-top: 20px;
-      width: 320px;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
+    body { font-family: Arial, sans-serif; background: #f2f2f2; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; padding: 20px; margin: 0; }
+    h1 { margin-top: 20px; margin-bottom: 10px; }
+    .calculator { background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 320px; }
+    input[type="text"] { width: 100%; font-size: 24px; padding: 10px; margin-bottom: 10px; text-align: right; border: 1px solid #ccc; border-radius: 8px; }
+    .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    button { padding: 15px; font-size: 18px; border: none; border-radius: 10px; background: #4CAF50; color: white; cursor: pointer; transition: background 0.3s; }
+    button:hover { background: #45a049; }
+    .ad-container { margin-top: 20px; width: 320px; height: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
   </style>
 </head>
 <body>
 
-  <h1>Simple Calculator</h1>
+<h1>Simple Calculator</h1>
 
-  <div class="calculator">
-    <input type="text" id="display" disabled>
-    <div class="buttons">
-      <button onclick="append('7')">7</button>
-      <button onclick="append('8')">8</button>
-      <button onclick="append('9')">9</button>
-      <button onclick="append('/')">/</button>
-
-      <button onclick="append('4')">4</button>
-      <button onclick="append('5')">5</button>
-      <button onclick="append('6')">6</button>
-      <button onclick="append('*')">*</button>
-
-      <button onclick="append('1')">1</button>
-      <button onclick="append('2')">2</button>
-      <button onclick="append('3')">3</button>
-      <button onclick="append('-')">-</button>
-
-      <button onclick="append('0')">0</button>
-      <button onclick="append('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="append('+')">+</button>
-
-      <button onclick="clearDisplay()" style="grid-column: span 4; background: #f44336;">Clear</button>
-    </div>
+<div class="calculator">
+  <input type="text" id="display" disabled>
+  <div class="buttons">
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('/')">/</button>
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick="append('*')">*</button>
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="append('-')">-</button>
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="append('+')">+</button>
+    <button onclick="clearDisplay()" style="grid-column: span 4; background: #f44336;">Clear</button>
   </div>
+</div>
 
-  <div class="ad-container">
-    <!-- HighPerformanceFormat Ad -->
-    <script type="text/javascript">
-      atOptions = {
-        'key' : 'f20c937f378aa28ee7a1e5327603a628',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
-
-    <!-- 015467.shop Ad -->
-    <ins style="width: 300px; height: 250px" data-width="300" data-height="250" class="m53c690cb26" data-domain="//015467.shop" data-affquery="/52ad720daeb037561aeb/53c690cb26/?placementName=default">
-      <script src="//015467.shop/js/responsive.js" async></script>
-    </ins>
-  </div>
-
-  <script>
-    function append(value) {
-      document.getElementById('display').value += value;
-    }
-
-    function calculate() {
-      try {
-        document.getElementById('display').value = eval(document.getElementById('display').value);
-      } catch (e) {
-        alert('Invalid Expression');
-      }
-    }
-
-    function clearDisplay() {
-      document.getElementById('display').value = '';
-    }
+<div class="ad-container">
+  <!-- Ad Scripts -->
+  <script type="text/javascript">
+    atOptions = {
+      'key': 'f20c937f378aa28ee7a1e5327603a628',
+      'format': 'iframe',
+      'height': 50,
+      'width': 320,
+      'params': {}
+    };
   </script>
+  <script type="text/javascript" src="//www.highperformanceformat.com/f20c937f378aa28ee7a1e5327603a628/invoke.js"></script>
+
+  <ins style="width: 300px; height: 250px" data-width="300" data-height="250" class="m53c690cb26" data-domain="//015467.shop" data-affquery="/52ad720daeb037561aeb/53c690cb26/?placementName=default">
+    <script src="//015467.shop/js/responsive.js" async></script>
+  </ins>
+</div>
+
+<script>
+function append(value) {
+  document.getElementById('display').value += value;
+}
+
+function calculate() {
+  try {
+    document.getElementById('display').value = eval(document.getElementById('display').value);
+  } catch (e) {
+    alert('Invalid Expression');
+  }
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+</script>
 
 </body>
 </html>
